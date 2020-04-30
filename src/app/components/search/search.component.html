@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col">
+        <label class="col--label">
+            <input #termino type="" class="col--label__input form-control" placeholder="Buscar Artista..." (keyup)="buscar(termino.value)">
+            <button class="col--label__buttom btn bg-success" (click)="buscar(termino.value)">Buscar</button>
+        </label>
+    </div>
+</div>
+<br> <br> <br>
+<app-card-error [mensajeError]="mensajeError" *ngIf="error"></app-card-error>
+<app-loading *ngIf="cargando"></app-loading>
+<app-tarjetas class="m-5" [items]="artista"></app-tarjetas>

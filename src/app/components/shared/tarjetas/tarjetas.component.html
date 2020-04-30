@@ -1,0 +1,18 @@
+<div class="card-columns animated fadeIn">
+    <div (click)="verArtista(item)" *ngFor="let item of items; let i = index;" class="card bg-dark ">
+        <img [src]="item.images| noimage" class="card-img-top" alt="imagen-cacion">
+        <ng-container *ngIf="item.type == 'artist' ; else elseTemplate">
+            <h5 class="card-title-colorwhite"> {{ item.name }} </h5>
+            <br>
+            <span class="badge badge-light">{{ item.followers.total |number }}</span>
+        </ng-container>
+        <ng-template #elseTemplate>
+            <div class="card-body">
+                <h5 class="card-title-colorwhite">{{ item.name }}</h5>
+                <span *ngFor="let artista of item.artists" class="badge badge-light">{{ artista.name }}</span>
+                <br>
+                <span class="badge badge-light">{{ item.release_date }}</span>
+            </div>
+        </ng-template>
+    </div>
+</div>

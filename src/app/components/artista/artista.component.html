@@ -1,0 +1,43 @@
+<app-loading *ngIf="carga"></app-loading>
+<app-card-error *ngIf="error"></app-card-error>
+<div class="row  animated fadeIn" *ngIf="!carga">
+    <div class="col-2">
+        <img [src]="artista.images | noimage" alt="imagen artista" class="img-thumbnail img-circle">
+    </div>
+    <div class="col">
+        <h3>{{ artista.name }}</h3>
+        <p>
+            <a [href]="artista.external_urls.spotify" target="_blank">pagina del artista</a>
+        </p>
+    </div>
+    <div class="col-4 text-right">
+        <button routerLink="/search" routerLinkActive="router-link-active" class="btn btn-outline-danger">Regresar</button>
+    </div>
+</div>
+
+<div class="row m-5">
+    <div class="col">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-capitalize">foto</th>
+                    <th class="text-capitalize">album</th>
+                    <th class="text-capitalize">canción</th>
+                    <th class="text-capitalize">vista previa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let track of topTracks; let i= index;">
+                    <th>
+                        <img class="img-thumb" [src]="track.album.images | noimage" alt="">
+                    </th>
+                    <th class="text-capitalize">{{ track.album.name}}</th>
+                    <th class="text-capitalize">{{ track.name }}</th>
+                    <th>
+                        <audio [src]="track.preview_url" controls></audio>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

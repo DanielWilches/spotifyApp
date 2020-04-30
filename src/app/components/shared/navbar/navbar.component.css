@@ -1,0 +1,16 @@
+.links :hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  font-weight: 600;
+  color: white;
+}
+
+.seleccion {
+  border-bottom: 1px solid white;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  font-weight: 600;
+  color: white;
+}
+/*# sourceMappingURL=navbar.component.css.map */
